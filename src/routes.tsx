@@ -1,0 +1,31 @@
+import App from "./App";
+import AboutMe from "./pages/about-me";
+import Home from "./pages/Home";
+import Skills from "./pages/Skills";
+
+const routes = [
+  {
+    path: '/',
+    element: <App />,
+    children: [
+      {
+        path: '/',
+        element: <Home />,
+      },
+      {
+        path: '/about-me',
+        element: <AboutMe />,
+      },
+      {
+        path: '/skills',
+        element: <Skills />,
+      },
+      {
+        path: '*',
+        element: <h1>NOT FOUND</h1>,
+      },
+
+    ],
+  },
+]
+export default routes;

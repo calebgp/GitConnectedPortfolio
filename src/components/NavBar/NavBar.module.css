@@ -1,0 +1,20 @@
+.topbar {
+    height: 4vh;
+    width: 85%;
+    padding: 20px 30px;
+
+    /* Combine left and right padding */
+    border-radius: 0 0 20px 20px;
+    /* Use shorthand for border radius */
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    /* Use hex code for color */
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+}

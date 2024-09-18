@@ -1,0 +1,33 @@
+.intro {
+    -webkit-box-pack: center;
+    /* Centers content in the cross axis */
+    -ms-flex-pack: center;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    /* Centers content in the main axis */
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    /* Simplified padding */
+    border-radius: 20px;
+}
+
+.introText {
+    padding-right: 15px;
+    text-align: start;
+    width: 100%;
+}
+
+.introText p {
+    font-weight: 600;
+}
+
+.myImage {
+    align-self: start;
+    width: 40%;
+    height: 40%;
+    margin: zero;
+    padding: 0;
+    border-radius: 50%;
+}

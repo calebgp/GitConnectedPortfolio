@@ -1,0 +1,19 @@
+#root {
+  /* Enables flexbox for better content control */
+  min-height: 100vh;
+  width: 100%;
+  text-align: center;
+  font-family: sans-serif;
+  background-color: #080808;
+  /* Centers text within the root element */
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* Enables flexbox for the container */
+  align-items: center;
+  /* Aligns items to the top of the container */
+  flex-direction: column;
+}

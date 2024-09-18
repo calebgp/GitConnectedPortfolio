@@ -1,23 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './Skills.module.css';
+import { ProfileContext } from '../../main';
+import SkillW from '../../components/Skill';
 
 const Skills: React.FC = () => {
+    const profile = useContext(ProfileContext);
     return (
         <div className={styles.container}>
-            <h1>Skills</h1>
-            <ul>
-                <li>JavaScript</li>
-                <li>TypeScript</li>
-                <li>React</li>
-                <li>Node.js</li>
-                <li>Express.js</li>
-                <li>MongoDB</li>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>Sass</li>
-                <li>Git</li>
-                <li>Docker</li>
-            </ul>
+            {profile?.skills.map((skill, index) => (
+                <SkillW key={index} skill={skill} />
+            ))}
         </div>
     );
 };

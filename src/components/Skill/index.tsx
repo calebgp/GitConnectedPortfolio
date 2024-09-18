@@ -8,6 +8,12 @@ const SkillW: React.FC<{ skill: Skill }> = ({ skill }) => {
             <div className={styles.skillName}>
                 {skill.name}
             </div>
+            <div className={styles.skillLevel}>
+                {skill.level}
+            </div>
+            <div className={styles.skillExp}>
+                {skill.yearsOfExperience} years of experience
+            </div>
         </div>
     );
 };

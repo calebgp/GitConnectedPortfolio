@@ -23,7 +23,7 @@ function App() {
   return (
     <ProfileContext.Provider value={profile}>
       <div className='container'>
-        <NavBar />
+        <NavBar profiles={profile?.basics.profiles}/>
         <SkeletonTheme baseColor="#202020" highlightColor="#444">
           <div id="detail">
             <Outlet />

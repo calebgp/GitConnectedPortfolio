@@ -1,9 +1,9 @@
 import React from 'react';
 
-const AboutMe: React.FC = () => {
+const ContactMe: React.FC = () => {
   return (
     <div></div>
   );
 };
 
-export default AboutMe;
+export default ContactMe;

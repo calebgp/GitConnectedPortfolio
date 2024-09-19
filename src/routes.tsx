@@ -1,5 +1,5 @@
 import App from "./App";
-import AboutMe from "./pages/about-me";
+import AboutMe from "./pages/ContactMe";
 import Home from "./pages/Home";
 import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";

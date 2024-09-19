@@ -3,11 +3,12 @@
     /* Centers content in the cross axis */
     -ms-flex-pack: center;
     margin: 20px;
+
     display: flex;
     justify-content: center;
     /* Centers content in the main axis */
     align-items: center;
-    width: 100%;
+    width: 80%;
     padding: 20px;
     /* Simplified padding */
     border-radius: 20px;

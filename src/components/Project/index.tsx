@@ -33,7 +33,7 @@ function GitHub(props: { githubUrl: string | undefined; }) {
 function ProjectUrl(props: { url: string | undefined; }) {
   if (props.url && props.url.length > 0) {
     return <a href={props.url} target="_blank" rel="noopener noreferrer">
-      Project Site
+      Project Link
     </a>
   }
 };

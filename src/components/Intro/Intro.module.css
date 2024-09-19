@@ -5,6 +5,7 @@
     margin: 20px;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     /* Centers content in the main axis */
     align-items: center;
@@ -16,7 +17,7 @@
 
 .introText {
     padding-right: 15px;
-    text-align: start;
+    text-align: center;
     width: 100%;
 }
 
@@ -25,10 +26,10 @@
 }
 
 .myImage {
-    align-self: start;
-    width: 40%;
-    height: 40%;
-    margin: zero;
+    align-self: center;
+    width: 30%;
+    height: 30%;
+    margin: 0;
     padding: 0;
     border-radius: 50%;
 }

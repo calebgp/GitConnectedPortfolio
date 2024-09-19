@@ -2,6 +2,7 @@ import App from "./App";
 import AboutMe from "./pages/about-me";
 import Home from "./pages/Home";
 import Skills from "./pages/Skills";
+import Projects from "./pages/Projects";
 
 const routes = [
   {
@@ -15,6 +16,10 @@ const routes = [
       {
         path: '/about-me',
         element: <AboutMe />,
+      },
+      {
+        path: '/projects',
+        element: <Projects />
       },
       {
         path: '/skills',

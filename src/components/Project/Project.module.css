@@ -1,10 +1,9 @@
 .project {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 300px;
-    height: 400px;
+    width: 70%;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -12,16 +11,18 @@
     transition: transform 0.2s ease-in-out;
 }
 
+
 .project:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .project img {
-    width: 30%;
+    width: 40%;
     height: auto;
     border-radius: 15px;
     margin-bottom: 10px;
+    margin-right: 10px;
 }
 
 .project h3 {
@@ -32,7 +33,7 @@
 .project p {
     text-align: center;
     text-overflow: ellipsis;
-    height: 100px;
+    max-height: 18vh;
     overflow: hidden;
     font-size: 0.9em;
     line-height: 1.5;

@@ -1,6 +1,7 @@
-.topbar {
+.topBar {
     height: 4vh;
     width: 85%;
+    position: relative; /* or absolute/fixed depending on your layout */
     padding: 20px 30px;
 
     /* Combine left and right padding */
@@ -18,16 +19,10 @@
     display: flex;
     justify-content: space-between;
 }
+
 .connections {
     display: flex;
     justify-content: center;
-    gap: 3vw;
+    gap: 1vw;
 }
-.github {
-    width: 30px;
-    height: 30px;
-}
-.linkedin {
-    width: 30px;
-    height: 30px;
-}
+

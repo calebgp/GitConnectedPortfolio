@@ -1,18 +1,17 @@
 import styles from './NavBar.module.css'
 import MyLink from "../MyLink";
 
-import {Profile} from "../../models/gc-profile";
+import { Profile } from "../../models/gc-profile";
 import React from "react";
 import Connection from "../Connection";
 
-const NavBar: React.FC<{ profiles: Profile[] | undefined }> = ({profiles}) => {
+const NavBar: React.FC<{ profiles: Profile[] | undefined }> = ({ profiles }) => {
 
     return (
         <div className={styles.topBar}>
             <nav className={styles.links}>
                 <MyLink path="/" label="Home"></MyLink>
                 <MyLink path="/projects" label="Projects"></MyLink>
-                <MyLink path="/skills" label="Skills"></MyLink>
                 <MyLink path="/about-me" label="About Me"></MyLink>
             </nav>
             <div className={styles.connections}>

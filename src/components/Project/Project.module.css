@@ -4,7 +4,8 @@
     align-items: start;
     justify-content: start;
     padding: 20px;
-    max-width: 60vw;
+    margin: 0;
+    max-width: 70vw;
     min-width: 40vw;
     border-radius: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -12,11 +13,6 @@
     transition: transform 0.2s ease-in-out;
 }
 
-
-.project:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(1, 1, 1, 1);
-}
 
 .projectImage {
     width: 100%;
@@ -30,7 +26,8 @@
 }
 
 .project p {
-    text-align: center;
+    text-align: start;
+    white-space: pre-wrap;
     text-overflow: ellipsis;
     max-height: 18vh;
     overflow: hidden;
@@ -38,13 +35,15 @@
     line-height: 1.5;
 }
 
+.links {
+    gap: 5px;
+}
+
 
 .links img {
     width: 25px;
-    margin-right: 5px;
     height: 25px;
-
-
+    transition: transform 0.2s ease-in-out;
 }
 
 .links img:hover {
@@ -58,4 +57,3 @@
     align-items: center;
     gap: 1vw;
 }
-

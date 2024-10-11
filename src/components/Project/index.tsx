@@ -4,6 +4,7 @@ import {Project} from '../../models/gc-profile';
 import Skeleton from 'react-loading-skeleton';
 
 import ImageGallery from "../ImageGallery";
+import {Divider} from "@mui/material";
 
 
 const ProjectW: React.FC<{ project: Project }> = ({project}) => {
@@ -23,11 +24,60 @@ const ProjectW: React.FC<{ project: Project }> = ({project}) => {
             </div>
             <ImageGallery
                 images={project.images}></ImageGallery>
+            <div className={styles.preDivider}></div>
+            <Divider flexItem color={"#999999"} sx={{opacity: 0.6}}/>
+
+            <div className={styles.used}>
+                <UsedLanguages project={project}/>
+                <UsedLibraries project={project}/>
+            </div>
             <p>{project.description}</p>
 
         </div>
     );
 };
+
+function UsedLanguages(props: { project: Project }) {
+
+    if (props.project.languages == null || props.project.languages.length === 0) {
+        return (
+            <></>
+        );
+    }
+    return (
+        <>
+            <br/>
+            {
+                props.project.languages.map((language, index) => (
+
+                        <a key={index}>{language}</a>
+                    )
+                )
+            }
+        </>
+    );
+
+}
+
+function UsedLibraries(props: { project: Project }) {
+
+    if (props.project.libraries == null || props.project.libraries.length === 0) {
+        return (
+            <></>
+        );
+    }
+    return (
+        <>
+            {
+                props.project.libraries.map((library, index) => (
+                    <a key={index}>{library}</a>
+                ))
+            }
+        </>
+    );
+
+}
+
 
 function GitHub(props: { githubUrl: string | undefined; }) {
     if (props.githubUrl && props.githubUrl.length > 0) {

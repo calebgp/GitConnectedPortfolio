@@ -8,7 +8,7 @@ interface ConnectionProps {
 
 const Connection: React.FC<ConnectionProps> = ({url, path}) => {
     if (url && path && url.length > 0 && path.length > 0) {
-        return <a href={url}>
+        return <a href={url} target={"_blank"}>
             <img className={styles.connection} src={path} alt={url}/>
         </a>
     }

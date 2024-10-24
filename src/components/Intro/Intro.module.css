@@ -5,20 +5,20 @@
     margin: 20px;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     /* Centers content in the main axis */
     align-items: center;
-    width: 80%;
+    width: 70%;
     padding: 20px;
     /* Simplified padding */
     border-radius: 20px;
 }
 
 .introText {
-    padding-right: 15px;
-    text-align: center;
-    width: 70%;
+    padding-left: 25px;
+    text-align: left;
+    width: 50%;
 }
 
 .introText p {

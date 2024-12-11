@@ -1,8 +1,8 @@
 import App from "./App";
-import AboutMe from "./pages/ContactMe";
 import Home from "./pages/Home";
 import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
+import ContactMe from "./pages/ContactMe";
 
 const routes = [
   {
@@ -14,8 +14,8 @@ const routes = [
         element: <Home />,
       },
       {
-        path: '/about-me',
-        element: <AboutMe />,
+        path: '/contact-me',
+        element: <ContactMe />,
       },
       {
         path: '/projects',

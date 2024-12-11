@@ -12,7 +12,7 @@ const NavBar: React.FC<{ profiles: Profile[] | undefined }> = ({ profiles }) => 
             <nav className={styles.links}>
                 <MyLink path="/" label="Home"></MyLink>
                 <MyLink path="/projects" label="Projects"></MyLink>
-                <MyLink path="/about-me" label="About Me"></MyLink>
+                <MyLink path="/contact-me" label="Contact Me"></MyLink>
             </nav>
             <div className={styles.connections}>
                 <Connection

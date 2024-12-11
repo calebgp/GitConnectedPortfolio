@@ -1,0 +1,10 @@
+
+.container {
+    -webkit-box-pack: center;
+    /* Centers content in the cross axis */
+    -ms-flex-pack: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

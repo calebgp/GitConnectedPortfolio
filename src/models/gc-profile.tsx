@@ -3,7 +3,7 @@ export interface GCProfile {
   basics: Basics;
   skills: Skill[];
   projects: Project[];
-  work: any[];
+  work: Work[];
   publications: any[];
   education: any[];
   volunteer: any[];
@@ -11,9 +11,32 @@ export interface GCProfile {
   languages: Language[];
   interests: any[];
   references: any[];
-  certificates: any[];
+  certificates: Certificate[];
   meta: Meta;
 }
+
+export interface Work {
+  name: string;
+  position: string;
+  url: string;
+  startDate: string;
+  summary: string;
+  highlights: string[];
+  isCurrentRole: boolean;
+  start: {
+    year: number;
+    month: number;
+  };
+}
+
+export interface Certificate {
+  name: string;
+  date: string;
+  url: string;
+  issuer: string;
+  summary: string;
+}
+
 
 export interface Basics {
   name: string;
@@ -64,7 +87,7 @@ export interface Project {
   repositoryUrl: string;
   start: Start;
   end: End;
-  images: Image[];
+  images: { [key: string]: Image };
   videos: any[];
 }
 
@@ -205,34 +228,39 @@ export const mapGCProfileToModel = (gcProfile: any): GCProfile => {
         month: project.end.month,
         day: project.end.day,
       },
-      images: project.images.map((image: any) => ({
-        resolutions: {
-          micro: {
-            url: image.resolutions.micro.url,
-            size: image.resolutions.micro.size,
-            width: image.resolutions.micro.width,
-            height: image.resolutions.micro.height,
+      images: project.images ? Object.fromEntries(
+        Object.entries(project.images).map(([key, image]: [string, any]) => [
+          key,
+          {
+            resolutions: {
+              micro: {
+                url: image.resolutions.micro.url,
+                size: image.resolutions.micro.size,
+                width: image.resolutions.micro.width,
+                height: image.resolutions.micro.height,
+              },
+              thumbnail: {
+                url: image.resolutions.thumbnail.url,
+                size: image.resolutions.thumbnail.size,
+                width: image.resolutions.thumbnail.width,
+                height: image.resolutions.thumbnail.height,
+              },
+              mobile: {
+                url: image.resolutions.mobile.url,
+                size: image.resolutions.mobile.size,
+                width: image.resolutions.mobile.width,
+                height: image.resolutions.mobile.height,
+              },
+              desktop: {
+                url: image.resolutions.desktop.url,
+                size: image.resolutions.desktop.size,
+                width: image.resolutions.desktop.width,
+                height: image.resolutions.desktop.height,
+              },
+            },
           },
-          thumbnail: {
-            url: image.resolutions.thumbnail.url,
-            size: image.resolutions.thumbnail.size,
-            width: image.resolutions.thumbnail.width,
-            height: image.resolutions.thumbnail.height,
-          },
-          mobile: {
-            url: image.resolutions.mobile.url,
-            size: image.resolutions.mobile.size,
-            width: image.resolutions.mobile.width,
-            height: image.resolutions.mobile.height,
-          },
-          desktop: {
-            url: image.resolutions.desktop.url,
-            size: image.resolutions.desktop.size,
-            width: image.resolutions.desktop.width,
-            height: image.resolutions.desktop.height,
-          },
-        },
-      })),
+        ])
+      ) : {},
       videos: project.videos,
     })),
     work: gcProfile.work,

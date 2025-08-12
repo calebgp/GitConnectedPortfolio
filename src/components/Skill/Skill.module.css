@@ -11,6 +11,28 @@
     background-color: #202020;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (min-width: 600px) {
+    .skillContainer {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .skillContainer {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        padding: 6px;
+        margin: 6px 0;
+    }
 }
 
 .skillContainer:hover {

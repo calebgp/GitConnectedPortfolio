@@ -1,0 +1,36 @@
+{
+  "home": "Início",
+  "contactMe": {
+    "title": "Contate-me",
+    "description": "Sinta-se à vontade para entrar em contato para quaisquer dúvidas ou colaborações.",
+    "messageSent": {
+        "title": "Mensagem Enviada",
+        "description": "Obrigado por entrar em contato!"
+    },
+    "form": {
+      "title": "Me envie uma mensagem",
+        "name": "Nome",
+        "email": "Email",
+        "subject": "Assunto",
+        "message": "Mensagem",
+        "send": "Enviar"
+    },
+    "errorSendingMessage": "Erro ao enviar mensagem. Por favor, tente novamente mais tarde."
+  },
+  "certificates": {
+    "title": "Certificados",
+    "issuedBy": "Emitido por",
+    "viewCertificate": "Ver Credencial"
+  },
+  "projects": {
+    "title": "Projetos",
+    "viewProject": "Ver Projeto",
+    "viewCode": "Ver Github",
+    "noImage": "Sem imagem disponível",
+    "technologies": "Tecnologias"
+  },
+  "skills": "Habilidades",
+  "workExperience": "Experiência Profissional"
+
+}
+

@@ -1,0 +1,35 @@
+{
+  "home": "Home",
+  "contactMe": {
+    "title": "Contact Me",
+    "description": "Feel free to reach out for any inquiries or collaborations.",
+    "messageSent": {
+        "title": "Message Sent",
+        "description": "Thank you for reaching out!"
+    },
+    "form": {
+      "title": "Send me a message",
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send"
+    },
+    "errorSendingMessage": "Error sending message. Please try again later."
+  },
+  "certificates": {
+    "title": "Certificates",
+    "issuedBy": "Issued by",
+    "viewCertificate": "View Credential"
+  },
+  "projects": {
+    "title": "Projects",
+    "viewProject": "See Project",
+    "viewCode": "See Github",
+    "noImage": "No images available",
+    "technologies": "Technologies"
+  },
+  "skills": "Skills",
+  "workExperience": "Work Experience"
+}
+

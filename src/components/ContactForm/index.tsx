@@ -1,50 +1,102 @@
-import React, { useState } from 'react';
-import styles from './ContactForm.module.css';
+import React from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm as useFormspree } from '@formspree/react';
+import { Box, TextField, Button, Typography, CircularProgress } from '@mui/material';
+import {useTranslation} from "react-i18next";
+
+interface IFormInput {
+    name: string;
+    email: string;
+    message: string;
+}
 
 const ContactForm: React.FC = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
+    // Lembre-se de substituir 'xxxxxxxx' pelo seu ID do Formspree!
+    const [state, handleSubmitFormspree] = useFormspree('mnnzbrow');
+    const { t } = useTranslation();
+    const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>();
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        // Handle form submission logic here
-        console.log({ name, email, message });
+    const onSubmit: SubmitHandler<IFormInput> = data => {
+        handleSubmitFormspree({ ...data });
     };
 
+    if (state.succeeded) {
+        return (
+            <Box sx={{ textAlign: 'center' }}>
+                <Typography variant="h5" sx={{ color: '#03dac6' }}>{t("contactMe.messageSent.title")}</Typography>
+                <Typography sx={{ color: 'white' }}>{t("contactMe.messageSent.description")}</Typography>
+            </Box>
+        );
+    }
+
     return (
-        <form className={styles.contactForm} onSubmit={handleSubmit}>
-            <div className={styles.formGroup}>
-                <label htmlFor="name">Name</label>
-                <input
-                    type="text"
-                    id="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                />
-            </div>
-            <div className={styles.formGroup}>
-                <label htmlFor="email">Email</label>
-                <input
-                    type="email"
-                    id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-            </div>
-            <div className={styles.formGroup}>
-                <label htmlFor="message">Message</label>
-                <textarea
-                    id="message"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    required
-                />
-            </div>
-            <button type="submit" className={styles.submitButton}>Submit</button>
-        </form>
+        <Box
+            component="form"
+            onSubmit={handleSubmit(onSubmit)}
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 2,
+                width: { xs: '95%', sm: '80%', md: '600px' },
+            }}
+        >
+            <Typography variant="h4" component="h2" align="center" gutterBottom>
+                {t("contactMe.form.title")}
+            </Typography>
+
+            <TextField
+                label={t("contactMe.form.name")}
+                variant="filled"
+                {...register('name', { required: 'O nome é obrigatório' })}
+                error={!!errors.name}
+                helperText={errors.name?.message}
+                InputLabelProps={{ style: { color: 'white' } }}
+                InputProps={{ style: { color: 'white', backgroundColor: '#2d2d2d' } }}
+            />
+
+            <TextField
+                label={t("contactMe.form.email")}
+                type="email"
+                variant="filled"
+                {...register('email', {
+                    required: 'O email é obrigatório',
+                    pattern: { value: /^\S+@\S+$/i, message: 'Formato de email inválido' }
+                })}
+                error={!!errors.email}
+                helperText={errors.email?.message}
+                InputLabelProps={{ style: { color: 'white' } }}
+                InputProps={{ style: { color: 'white', backgroundColor: '#2d2d2d' } }}
+            />
+
+            <TextField
+                label={t("contactMe.form.message")}
+                variant="filled"
+                multiline
+                rows={4}
+                {...register('message', { required: 'A mensagem não pode estar em branco' })}
+                error={!!errors.message}
+                helperText={errors.message?.message}
+                InputLabelProps={{ style: { color: 'white' } }}
+                InputProps={{ style: { color: 'white', backgroundColor: '#2d2d2d' } }}
+            />
+
+            <Button
+                type="submit"
+                variant="contained"
+                disabled={state.submitting}
+                sx={{
+                    py: 1.5,
+                    backgroundColor: '#03dac6',
+                    color: 'black',
+                    fontWeight: 'bold',
+                    '&:hover': {
+                        backgroundColor: 'white',
+                    }
+                }}
+            >
+                {state.submitting ? <CircularProgress size={24} color="inherit" /> : t("contactMe.form.send")}
+            </Button>
+        </Box>
     );
 };
 

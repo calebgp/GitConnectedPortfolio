@@ -1,28 +1,115 @@
 .topBar {
-    height: 4vh;
-    width: 85%;
-    position: relative; /* or absolute/fixed depending on your layout */
-    padding: 20px 30px;
-
-    /* Combine left and right padding */
-    border-radius: 0 0 20px 20px;
-    /* Use shorthand for border radius */
+    height: auto;
+    width: 100%;
+    min-width: 0;
+    position: relative;
+    padding: 16px 12px;
+    border-radius: 0 0 24px 24px;
     display: flex;
-
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    background-color: #333;
-    /* Use hex code for color */
+    background: linear-gradient(90deg, #232323 60%, #03dac6 100%);
+    box-shadow: 0 2px 16px rgba(3,218,198,0.08);
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    z-index: 10;
+    transition: box-shadow 0.3s;
 }
 
 .links {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    min-width: 0;
+    flex-wrap: wrap;
+}
+
+.links a {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #03dac6;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.languagePicker select {
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: #232323;
+    color: #03dac6;
+    border: 1px solid #03dac6;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.languagePicker select:hover {
+    background: #03dac6;
+    color: #232323;
+}
+
+.languagePicker select:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(3, 218, 198, 0.8);
+}
+
+.languagePicker option {
+    background: #232323;
+    color: #03dac6;
 }
 
 .connections {
     display: flex;
     justify-content: center;
-    gap: 1vw;
+    align-items: center;
+    gap: 18px;
+    min-width: 0;
+    flex-wrap: wrap;
 }
 
+.connections img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 6px #03dac6);
+    transition: transform 0.2s;
+}
+
+.connections img:hover {
+    transform: scale(1.15);
+}
+
+@media (max-width: 700px) {
+    .topBar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px 4px;
+        border-radius: 0 0 12px 12px;
+        overflow-x: hidden;
+        background: linear-gradient(90deg, #232323 100%, #03dac6 100%);
+    }
+    .links {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+        min-width: 0;
+        flex-wrap: wrap;
+    }
+    .connections {
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 4px;
+        min-width: 0;
+    }
+    .connections img {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+    }
+}

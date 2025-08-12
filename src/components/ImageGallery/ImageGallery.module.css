@@ -1,23 +1,52 @@
 .imageGallery {
     display: flex;
-    flex-wrap: wrap;
+    /* Alterado para não quebrar linha e permitir scroll */
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
     gap: 10px;
+    padding: 10px 0;
+    width: 100%;
+
+    /* Altura fixa para o container da galeria */
+    min-height: 160px;
+    align-items: center;
+
+    /* Estilização da barra de rolagem para um visual mais limpo */
+    scrollbar-width: thin;
+    scrollbar-color: #555 #333;
+}
+
+.imageGallery::-webkit-scrollbar {
+    height: 8px;
+}
+
+.imageGallery::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 4px;
+}
+
+.imageGallery::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 4px;
 }
 
 .image {
-    width: 100px;
+    /* Define uma altura fixa para as imagens, a largura será automática */
     height: 140px;
+    width: auto;
     object-fit: cover;
     cursor: pointer;
-    border-radius: 15px;
-    transition: transform 0.3s ease;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .image:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* Fullscreen Modal */
+/* O resto do seu CSS para o modal pode permanecer o mesmo */
 .modal {
     width: 100%;
     height: 100%;
@@ -36,22 +65,14 @@
 .modalImage {
     box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
     height: auto;
-    min-height: 100%;
-    border-radius: 0;
-
     max-width: 90%;
     max-height: 90%;
-
     animation: zoomIn 0.3s ease;
 }
 
 @keyframes zoomIn {
-    from {
-        transform: scale(0.5);
-    }
-    to {
-        transform: scale(1);
-    }
+    from { transform: scale(0.5); }
+    to { transform: scale(1); }
 }
 
 .close {
@@ -61,5 +82,5 @@
     color: white;
     font-size: 30px;
     cursor: pointer;
-    z-index: 1000;
+    z-index: 1001;
 }

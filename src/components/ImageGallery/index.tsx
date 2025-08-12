@@ -4,7 +4,7 @@ import styles from "./ImageGallery.module.css";
 import {Dialog} from "@mui/material";
 
 interface ImageGalleryProps {
-    images: Image[] | undefined;
+    images: { [key: string]: Image } | undefined;
 }
 
 const ImageGallery: React.FC<ImageGalleryProps> = ({images}) => {
@@ -21,12 +21,12 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({images}) => {
     return (
         <div>
             <div className={styles.imageGallery}>
-                {images?.map((image, index) => (
+                {images && Object.entries(images).map(([key, image], index) => (
                     <img
-                        key={index}
+                        key={key + index}
                         className={styles.image}
                         src={image.resolutions.desktop?.url || image.resolutions.mobile?.url}
-                        alt={`Image ${index}`}
+                        alt={`Image ${key}`}
                         onClick={() => openModal(image.resolutions.desktop?.url || image.resolutions.mobile?.url)}
                     />
                 ))}

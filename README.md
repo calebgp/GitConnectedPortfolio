@@ -1,50 +1,49 @@
-# React + TypeScript + Vite
+# GitConnected Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é um portfólio profissional desenvolvido em React, TypeScript e Vite, que consome dados do GitConnected API e exibe informações de perfil, habilidades, projetos, experiências profissionais, certificados e mais. O sistema suporta internacionalização (i18n) e tradução automática dos textos usando a API do Google Translate.
 
-Currently, two official plugins are available:
+## Funcionalidades
+- Exibição de perfil profissional completo
+- Listagem de habilidades, projetos, experiências, certificados, etc.
+- Tradução automática dos textos para múltiplos idiomas
+- Cache local das traduções para melhor performance
+- Interface responsiva e moderna
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologias Utilizadas
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [react-i18next](https://react.i18next.com/)
+- [Google Translate API](https://cloud.google.com/translate)
+- [GitConnected API](https://gitconnected.com/)
 
-## Expanding the ESLint configuration
+## Como executar
+1. Instale as dependências:
+   ```bash
+   npm install
+   ```
+2. Crie um arquivo `.env` na raiz do projeto com as variáveis:
+   ```env
+   VITE_GOOGLE_API_KEY=SEU_API_KEY
+   VITE_PORTFOLIO_URL=https://gitconnected.com/v1/portfolio/SEU_USERNAME
+   VITE_TRANSLATION_CACHE_DURATION=21600000 # (opcional, duração do cache em ms)
+   ```
+3. Inicie o projeto:
+   ```bash
+   npm run dev
+   ```
+4. Acesse `http://localhost:5173` no navegador.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Estrutura de Pastas
+- `src/components/` - Componentes reutilizáveis da interface
+- `src/pages/` - Páginas principais do portfólio
+- `src/models/` - Modelos TypeScript para tipagem dos dados
+- `src/locales/` - Arquivos de tradução
 
-- Configure the top-level `parserOptions` property like this:
+## Personalização
+- Edite o arquivo de modelo em `src/models/gc-profile.tsx` para ajustar os tipos conforme sua necessidade.
+- Modifique os componentes em `src/components/` para alterar o layout ou adicionar novas funcionalidades.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Licença
+Este projeto é open-source e pode ser utilizado livremente para fins pessoais e profissionais.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```

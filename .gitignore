@@ -7,15 +7,18 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 .vite
+.firebase
 node_modules
 dist
 dist-ssr
 *.local
 
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
+.idx
 .DS_Store
 *.suo
 *.ntvs*

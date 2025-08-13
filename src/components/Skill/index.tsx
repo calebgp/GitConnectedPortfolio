@@ -3,13 +3,10 @@ import { Skill } from '../../models/gc-profile';
 import { Box, Typography, LinearProgress, Paper } from '@mui/material';
 
 const SkillW: React.FC<{ skill: Skill }> = ({ skill }) => {
-    const getProgressValue = (level: string) => {
-        switch (level?.toLowerCase()) {
-            case 'advanced': return 90;
-            case 'intermediate': return 65;
-            case 'basic': return 30;
-            default: return 0;
-        }
+    const getProgressValue = (level: number) => {
+        if (level < 1) return 0;
+        if (level >= 10) return 100;
+        return (level / 5) * 100;
     };
 
     return (
@@ -34,7 +31,7 @@ const SkillW: React.FC<{ skill: Skill }> = ({ skill }) => {
             <Box sx={{ width: '100%', mt: 1 }}>
                 <LinearProgress
                     variant="determinate"
-                    value={getProgressValue(skill.level)}
+                    value={getProgressValue(skill.rating)}
                     sx={{
                         height: 8,
                         borderRadius: 5,

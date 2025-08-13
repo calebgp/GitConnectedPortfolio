@@ -43,9 +43,12 @@ async function translateProfile(profile: GCProfile, targetLang: string): Promise
     const stringMap: string[] = []
     const pathMap: { path: (string | number)[] }[] = []
     const excludedPaths = [
-        ['skills', '*', 'name'],         // Nome das skills
-        ['projects', '*', 'name'],       // Nome dos projetos
-        ['projects', '*', 'displayName'] // Display name dos projetos
+        ['skills', '*', 'name'],
+        ['projects', '*', 'name'],
+        ['projects', '*', 'displayName'],
+        ['projects', '*', 'languages', "*"],
+        ['projects', '*', 'libraries', "*"],
+        ['work', '*', 'name'],
     ]
 
     function isExcluded(path: (string | number)[]) {
@@ -92,7 +95,7 @@ function App() {
     useEffect(() => {
         (async () => {
             const cacheKey = `profile_${i18n.language}`;
-            const CACHE_DURATION = import.meta.env.VITE_LANGUAGE_CACHE_DURATION ?? 6 * 60 * 60 * 1000; // 6 horas em ms
+            const CACHE_DURATION = import.meta.env.VITE_TRANSLATION_CACHE_DURATION ?? 6 * 60 * 60 * 1000; // 6 horas em ms
 
             const cachedData = localStorage.getItem(cacheKey);
 

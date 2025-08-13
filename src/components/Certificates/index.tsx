@@ -29,7 +29,7 @@ const Certificates: React.FC<CertificatesProps> = ({ certificates }) => {
                     }}>
                         <CardContent>
                             <Typography variant="h6">{cert.name}</Typography>
-                            <Typography sx={{ mb: 1, color: '#b0b0b0' }}>Issued by: {cert.issuer}</Typography>
+                            <Typography sx={{ mb: 1, color: '#b0b0b0' }}>{t("certificates.issuedBy")}: {cert.issuer}</Typography>
                             <Button
                                 variant="outlined"
                                 href={cert.url}

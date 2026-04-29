@@ -1,6 +1,7 @@
 import './App.css'
 import { Outlet } from 'react-router-dom'
 import NavBar from './components/NavBar'
+import Footer from './components/Footer'
 import { SkeletonTheme } from 'react-loading-skeleton'
 import { useEffect, useState } from 'react'
 import { GCProfile, mapGCProfileToModel } from './models/gc-profile'
@@ -132,6 +133,7 @@ function App() {
                         <Outlet />
                     </div>
                 </SkeletonTheme>
+                <Footer />
             </div>
         </ProfileContext.Provider>
     )

@@ -1,5 +1,13 @@
 {
   "home": "Início",
+  "present": "Presente",
+  "current": "Atual",
+  "ended": "Encerrado",
+  "stats": {
+    "yearsExp": "Anos de Experiência",
+    "projects": "Projetos",
+    "skills": "Tecnologias"
+  },
   "contactMe": {
     "title": "Contate-me",
     "description": "Sinta-se à vontade para entrar em contato para quaisquer dúvidas ou colaborações.",
@@ -31,6 +39,5 @@
   },
   "skills": "Habilidades",
   "workExperience": "Experiência Profissional"
-
 }
 

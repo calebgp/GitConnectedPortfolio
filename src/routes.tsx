@@ -1,6 +1,5 @@
 import App from "./App";
 import Home from "./pages/Home";
-import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
 import ContactMe from "./pages/ContactMe";
 
@@ -20,10 +19,6 @@ const routes = [
       {
         path: '/projects',
         element: <Projects />
-      },
-      {
-        path: '/skills',
-        element: <Skills />,
       },
       {
         path: '*',

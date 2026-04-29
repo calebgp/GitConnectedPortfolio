@@ -1,5 +1,13 @@
 {
   "home": "Home",
+  "present": "Present",
+  "current": "Current",
+  "ended": "Ended",
+  "stats": {
+    "yearsExp": "Years of Experience",
+    "projects": "Projects",
+    "skills": "Technologies"
+  },
   "contactMe": {
     "title": "Contact Me",
     "description": "Feel free to reach out for any inquiries or collaborations.",

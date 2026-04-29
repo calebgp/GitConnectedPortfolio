@@ -20,10 +20,16 @@ export interface Work {
   position: string;
   url: string;
   startDate: string;
+  endDate?: string;
   summary: string;
   highlights: string[];
   isCurrentRole: boolean;
+  location?: string;
   start: {
+    year: number;
+    month: number;
+  };
+  end?: {
     year: number;
     month: number;
   };

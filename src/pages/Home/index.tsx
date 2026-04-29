@@ -2,47 +2,77 @@ import React, { useContext } from 'react';
 import styles from './Home.module.css';
 import Intro from '../../components/Intro';
 import { ProfileContext } from '../../main';
-import { Box, Divider } from '@mui/material';
+import { Box, Divider, Typography } from '@mui/material';
 import Skills from '../Skills';
 import WorkExperience from '../../components/WorkExperience';
 import Certificates from '../../components/Certificates';
 import Skeleton from 'react-loading-skeleton';
-
-
+import CodeIcon from '@mui/icons-material/Code';
+import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
+import StarIcon from '@mui/icons-material/Star';
+import { useTranslation } from "react-i18next";
 
 const Home: React.FC = () => {
     const profile = useContext(ProfileContext);
+    const { t } = useTranslation();
 
     if (!profile) {
         return (
-            <Box className={styles.container} sx={{p: 3}}>
-                <Skeleton circle width={150} height={150} />
-                <Skeleton height={40} width="60%" style={{marginTop: '20px'}} />
-                <Skeleton count={3} width="80%" />
+            <Box className={styles.container} sx={{ p: 3, alignItems: 'center' }}>
+                <Skeleton circle width={160} height={160} />
+                <Skeleton height={50} width="50%" style={{ marginTop: 20 }} />
+                <Skeleton count={3} width="70%" />
                 <HomeDivider />
                 <Skeleton height={200} width="90%" />
             </Box>
-        )
+        );
     }
 
+    const oldestWorkYear = profile.work?.length > 0
+        ? Math.min(...profile.work.map(w => w.start?.year ?? new Date().getFullYear()))
+        : new Date().getFullYear();
+    const yearsExp = new Date().getFullYear() - oldestWorkYear;
+
+    const stats = [
+        {
+            icon: <BusinessCenterIcon sx={{ fontSize: 34, color: '#03dac6' }} />,
+            value: `${yearsExp}+`,
+            label: t('stats.yearsExp'),
+        },
+        {
+            icon: <CodeIcon sx={{ fontSize: 34, color: '#03dac6' }} />,
+            value: profile.projects?.length ?? 0,
+            label: t('stats.projects'),
+        },
+        {
+            icon: <StarIcon sx={{ fontSize: 34, color: '#03dac6' }} />,
+            value: profile.skills?.length ?? 0,
+            label: t('stats.skills'),
+        },
+    ];
+
     return (
-        <Box
-            className={styles.container}
-            sx={{
-                width: '100%',
-                px: { xs: 1, sm: 2, md: 4 },
-                boxSizing: 'border-box',
-                maxWidth: { xs: '100vw', sm: '100%', md: '1200px' },
-                margin: '0 auto',
-            }}
-        >
+        <Box className={styles.container}>
             <Intro basics={profile.basics} />
+
+            <Box className={styles.statsRow}>
+                {stats.map((stat, i) => (
+                    <Box key={i} className={styles.statCard}>
+                        {stat.icon}
+                        <Typography variant="h4" sx={{ fontWeight: 700, color: 'white', lineHeight: 1.2 }}>
+                            {stat.value}
+                        </Typography>
+                        <Typography variant="body2" sx={{ color: '#b0b0b0', fontSize: '0.82rem' }}>
+                            {stat.label}
+                        </Typography>
+                    </Box>
+                ))}
+            </Box>
+
             <HomeDivider />
             <Skills />
             <HomeDivider />
-            {/* Seção de Experiência Profissional */}
             <WorkExperience work={profile.work} />
-            {/* Seção de Certificados */}
             <Certificates certificates={profile.certificates} />
         </Box>
     );
@@ -53,12 +83,12 @@ function HomeDivider() {
         <Divider
             sx={{
                 width: { xs: '80%', sm: '60%', md: '50%' },
-                backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                backgroundColor: 'rgba(3, 218, 198, 0.15)',
                 my: 5,
                 height: '1px',
             }}
         />
-    )
+    );
 }
 
 export default Home;

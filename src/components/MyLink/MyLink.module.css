@@ -1,15 +1,20 @@
-.link a.active {
-    color: white;
-}
-
 .link a {
-    font-weight: 500;
-    letter-spacing: 2px;
-
-    padding-right: 8px;
-    color: rgb(98, 98, 98);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    transition: all 0.2s;
 }
 
 .link a:hover {
-    color: white;
+    color: #03dac6;
+    background: rgba(3, 218, 198, 0.08);
+}
+
+.link a.active {
+    color: #03dac6;
+    background: rgba(3, 218, 198, 0.1);
 }

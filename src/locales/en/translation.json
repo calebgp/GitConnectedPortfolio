@@ -8,8 +8,12 @@
     "projects": "Projects",
     "skills": "Technologies"
   },
-  "contactMe": {
+    "contactMe": {
     "title": "Contact Me",
+    "getInTouch": "Get in Touch",
+    "findMeOn": "Find me on",
+    "phone": "Phone",
+    "location": "Location",
     "description": "Feel free to reach out for any inquiries or collaborations.",
     "messageSent": {
         "title": "Message Sent",

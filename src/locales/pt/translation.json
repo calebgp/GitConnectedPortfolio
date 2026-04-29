@@ -10,6 +10,10 @@
   },
   "contactMe": {
     "title": "Contate-me",
+    "getInTouch": "Entre em Contacto",
+    "findMeOn": "Encontre-me em",
+    "phone": "Telefone",
+    "location": "Localização",
     "description": "Sinta-se à vontade para entrar em contato para quaisquer dúvidas ou colaborações.",
     "messageSent": {
         "title": "Mensagem Enviada",
